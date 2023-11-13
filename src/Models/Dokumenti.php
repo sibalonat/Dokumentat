@@ -1,6 +1,6 @@
 <?php
 
-namespace Keysoft\Dokumentat\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
