@@ -19,7 +19,7 @@ class DokumentiController extends Controller
     {
         $doc = Dokumenti::whereId($dokumenti->id)->first();
 
-        $media =  $dokumenti->getFirstMedia('document');
+        $media = $dokumenti->getFirstMedia('document');
 
         /*
         * assumes you start the folder navigation from Pages
