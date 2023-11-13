@@ -4,6 +4,7 @@ namespace Keysoft\Dokumentat\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
@@ -29,7 +30,6 @@ class DokumentatCommand extends Command
     /**
      * Update the "package.json" file.
      *
-     * @param  callable  $callback
      * @param  bool  $dev
      * @return void
      */

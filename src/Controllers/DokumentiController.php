@@ -2,15 +2,10 @@
 
 namespace Keysoft\Dokumentat\Controllers;
 
-
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-
 use App\Jobs\ConvertedDocument;
-use App\Models\ProjectDocument;
-
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use Keysoft\Dokumentat\Models\Dokumenti;
 
 class DokumentiController extends Controller
@@ -50,9 +45,9 @@ class DokumentiController extends Controller
 
         $converter = env('ONLYOFFICE_CONVERTER');
         Http::acceptJson()
-        ->retry(3, 100)
-        ->timeout(120)
-        ->post($converter, $jsonConverter)->json();
+            ->retry(3, 100)
+            ->timeout(120)
+            ->post($converter, $jsonConverter)->json();
 
         ConvertedDocument::dispatch(
             $string,
@@ -62,5 +57,4 @@ class DokumentiController extends Controller
             $project
         )->delay(now()->addSeconds(10));
     }
-
 }

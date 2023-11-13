@@ -12,5 +12,5 @@ return [
     / and then in the this configuration 'convert':  env('ONLYOFFICE_DOCUMENT_SERVER_URL')/ConvertService.ashx
     */
     'developer' => '',
-    'convert' => config('dokumentat.developer').'/ConvertService.ashx'
+    'convert' => config('dokumentat.developer').'/ConvertService.ashx',
 ];
