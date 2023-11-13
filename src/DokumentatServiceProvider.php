@@ -19,7 +19,7 @@ class DokumentatServiceProvider extends PackageServiceProvider
             ->name('dokumentat')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_dokumentat_table')
+            ->hasMigration('create_dokumenti_table')
             ->hasCommand(DokumentatCommand::class);
     }
 }
