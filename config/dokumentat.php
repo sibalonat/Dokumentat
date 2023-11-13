@@ -11,5 +11,5 @@ return [
     / this is not restricted to an api, but for development you would Docker
     / and then in the this configuration 'convert':  env('ONLYOFFICE_DOCUMENT_SERVER_URL')/ConvertService.ashx
     */
-    'convert' => '/ConvertService.ashx'
+    'convert' => '/ConvertService.ashx',
 ];
