@@ -15,9 +15,9 @@ class DokumentiController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function generatePdf(Dokumenti $projectDocument)
+    public function generatePdf(Dokumenti $dokumenti)
     {
-        $media = $projectDocument->getFirstMediaUrl('document');
+        $media = $dokumenti->getFirstMediaUrl('document');
 
         $string = Str::ulid();
 
@@ -38,7 +38,7 @@ class DokumentiController extends Controller
         ConvertedDocument::dispatch(
             $string,
             $media,
-            $projectDocument,
+            $dokumenti,
         )->delay(now()->addSeconds(10));
     }
 }
