@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Keysoft\Dokumentat\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class DokumentatCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'dokumentat';
 
     public $description = 'My command';
 
