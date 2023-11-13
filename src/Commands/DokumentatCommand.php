@@ -12,7 +12,9 @@ class DokumentatCommand extends Command
 
     public function handle(): int
     {
-        $this->comment('All done');
+        $text = config('dokumentat.command_output');
+
+        $this->comment($text);
 
         return self::SUCCESS;
     }
