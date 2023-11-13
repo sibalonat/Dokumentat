@@ -1,12 +1,12 @@
 <?php
 
-namespace Keysoft\Dokumentat\Controllers;
+namespace App\Http\Controllers;
 
 use App\Jobs\ConvertedDocument;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use Keysoft\Dokumentat\Models\Dokumenti;
+use App\Models\Dokumenti;
 
 class DokumentiController extends Controller
 {
@@ -15,23 +15,9 @@ class DokumentiController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     public function generatePdf(Dokumenti $projectDocument)
     {
         $media = $projectDocument->getFirstMediaUrl('document');
-
-        $mediacollection = $projectDocument->getFirstMedia('document');
-
-        if ($projectDocument->status === 'Chiuso') {
-            $projectDocument->structurefolders()->detach();
-        }
 
         $string = Str::ulid();
 
@@ -53,8 +39,6 @@ class DokumentiController extends Controller
             $string,
             $media,
             $projectDocument,
-            $mediacollection,
-            $project
         )->delay(now()->addSeconds(10));
     }
 }
