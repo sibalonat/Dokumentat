@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ConvertedDocument;
+use App\Models\Dokumenti;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use App\Models\Dokumenti;
 
 class DokumentiController extends Controller
 {
