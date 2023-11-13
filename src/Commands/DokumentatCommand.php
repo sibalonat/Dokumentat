@@ -17,6 +17,17 @@ class DokumentatCommand extends Command
 
         // $this->comment($text);
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
+        (new Filesystem)->copy(
+            __DIR__.'../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
+        );
+        (new Filesystem)->ensureDirectoryExists(app_path('Models'));
+        (new Filesystem)->copy(__DIR__.'../Models/Dokumenti.php', app_path('Models/Dokumenti.php'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
+        (new Filesystem)->copy(__DIR__.'../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
+        // (new Filesystem)->copy(__DIR__.'../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php'));
+        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-vue/resources/js/Pages', resource_path('js/Pages'));
+
         $this->updateNodePackages(function ($packages) {
             return [
                 'vue' => '^3.2.41',

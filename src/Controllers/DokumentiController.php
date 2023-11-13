@@ -15,6 +15,24 @@ class DokumentiController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
+    public function show(Dokumenti $dokumenti)
+    {
+        $doc = Dokumenti::whereId($dokumenti->id)->first();
+
+        $media =  $dokumenti->getFirstMedia('document');
+
+        /*
+        * assumes you start the folder navigation from Pages
+        * loads the document and the file
+
+        return inertia('Document/Dokumenti', [
+            'document' => $doc,
+            'media' => $media,
+        ]);
+
+        */
+    }
+
     public function generatePdf(Dokumenti $dokumenti)
     {
         $media = $dokumenti->getFirstMediaUrl('document');
