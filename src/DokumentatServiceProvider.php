@@ -2,9 +2,9 @@
 
 namespace Keysoft\Dokumentat;
 
+use Keysoft\Dokumentat\Commands\DokumentatCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Keysoft\Dokumentat\Commands\DokumentatCommand;
 
 class DokumentatServiceProvider extends PackageServiceProvider
 {

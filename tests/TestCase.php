@@ -3,8 +3,8 @@
 namespace Keysoft\Dokumentat\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Keysoft\Dokumentat\DokumentatServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
