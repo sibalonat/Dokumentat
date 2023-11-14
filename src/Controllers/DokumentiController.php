@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dokumenti;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Jobs\ConvertedDocument;
-// use App\Models\Dokumenti;
+use App\Models\Dokumenti;
 use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+// use App\Models\Dokumenti;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use Illuminate\Support\Str;
 
 class DokumentiController extends Controller

@@ -51,7 +51,7 @@ class DokumentatCommand extends Command
         $appRouteFile = base_path('routes/web.php');
 
         // Append the content to 'web.php'
-        file_put_contents($appRouteFile, $content.PHP_EOL , FILE_APPEND | LOCK_EX);
+        file_put_contents($appRouteFile, $content.PHP_EOL, FILE_APPEND | LOCK_EX);
 
         $this->updateNodePackages(function ($packages) {
             return [
