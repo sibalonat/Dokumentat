@@ -71,6 +71,10 @@ php artisan dokumentat
 
 This will create a model, controller, a job, some entries on web route, and finally a vue document, that will connect everything together. 
 
+```bash
+Later i will add more explaining and some use cases on how to setup ONLYOFFICE locally and on the server, and some examples on using it with other applications
+```
+
 ## Testing
 
 ```bash
