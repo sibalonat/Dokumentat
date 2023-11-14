@@ -41,17 +41,17 @@ class DokumentatCommand extends Command
             __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
         );
         (new Filesystem)->ensureDirectoryExists(base_path('routes'));
-        // (new Filesystem)->copy(
-        //     __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
-        // );
 
         $route = __DIR__.'/../routes/web.php';
         $this->comment($route);
         $content = file_get_contents($route);
         $this->comment($content);
-        $approute = base_path('routes');
 
-        // file_put_contents('logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+        // Specify the full path to the 'web.php' file in the application's 'routes' directory
+        $appRouteFile = base_path('routes/web.php');
+
+        // Append the content to 'web.php'
+        file_put_contents($appRouteFile, $content.PHP_EOL , FILE_APPEND | LOCK_EX);
 
         $this->updateNodePackages(function ($packages) {
             return [
