@@ -15,16 +15,29 @@ class DokumentatCommand extends Command
     {
         // $text = config('dokumentat.command_output');
 
-        // $this->comment($text);
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
+        $this->comment(app_path('Http/Controllers'));
+        $this->comment(resource_path('js'));
+
+        // resource_path
+        // return 0;
+
         (new Filesystem)->copy(
-            __DIR__.'../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
+            __DIR__.'/../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
         );
         (new Filesystem)->ensureDirectoryExists(app_path('Models'));
-        (new Filesystem)->copy(__DIR__.'../Models/Dokumenti.php', app_path('Models/Dokumenti.php'));
+        (new Filesystem)->copy(
+            __DIR__.'/../Models/Dokumenti.php', app_path('Models/Dokumenti.php')
+        );
         (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
-        (new Filesystem)->copy(__DIR__.'../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php'));
-        (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
+        (new Filesystem)->copy(
+            __DIR__.'/../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php')
+        );
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
+        (new Filesystem)->copy(
+            __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
+        );
+        // (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
         // (new Filesystem)->copy(__DIR__.'../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php'));
         // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-vue/resources/js/Pages', resource_path('js/Pages'));
 
