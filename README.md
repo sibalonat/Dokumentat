@@ -4,7 +4,10 @@
 This package offers the possibility to use onlyoffice with Vue 3. It provides controllers, models, and jobs to make connection to OnlyOffice editor and make for example conversion of documents to PDF or other. But some of the files included will serve as examples on how to use OnlyOffice and some of the best practises i noticed this year by using this package.
 
 This package relies heavily on:
+```bash
 === BEFORE INSTALLING THIS PACKAGE BE SURE TO INSTALL BREEZE WITH INERTIA.VUE === 
+```
+
 - [Laravel Inertia](https://github.com/inertiajs/inertia-laravel), 
 - [Laravel Breeze](https://github.com/laravel/breeze) - that will in fact streamline installing inertia, tailwind and vue
 - [Tailwind](https://tailwindcss.com/)
