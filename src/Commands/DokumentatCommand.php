@@ -28,24 +28,45 @@ class DokumentatCommand extends Command
         (new Filesystem)->copy(
             __DIR__.'/../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
         );
+        $ctrl = __DIR__.'/../routes/WriteInController.stub';
+        $appCtrlFile = app_path('Http/Controllers/DokumentiController.php');
+        $contentCtrl = file_get_contents($ctrl);
+
+        // Append the content to 'DokumentiController.php'
+        file_put_contents($appCtrlFile, $contentCtrl.PHP_EOL, FILE_APPEND | LOCK_EX);
+
         (new Filesystem)->ensureDirectoryExists(app_path('Models'));
         (new Filesystem)->copy(
             __DIR__.'/../Models/Dokumenti.php', app_path('Models/Dokumenti.php')
         );
+
+        $model = __DIR__.'/../Models/WriteInModel.stub';
+        $appModelFile = app_path('Models/Dokumenti.php');
+        $contentModel = file_get_contents($model);
+
+        // Append the content to 'Dokumenti.php'
+        file_put_contents($appModelFile, $contentModel.PHP_EOL, FILE_APPEND | LOCK_EX);
+
         (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
         (new Filesystem)->copy(
             __DIR__.'/../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php')
         );
+
+        $job = __DIR__.'/../Jobs/WriteInJob.stub';
+        $appJobFile = app_path('Jobs/ConvertedDocument.php');
+        $contentJob = file_get_contents($job);
+
+        // Append the content to 'ConvertedDocument.php'
+        file_put_contents($appJobFile, $contentJob.PHP_EOL, FILE_APPEND | LOCK_EX);
+
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
         (new Filesystem)->copy(
             __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
         );
         (new Filesystem)->ensureDirectoryExists(base_path('routes'));
 
-        $route = __DIR__.'/../routes/web.php';
-        $this->comment($route);
+        $route = __DIR__.'/../routes/WriteInWeb.stub';
         $content = file_get_contents($route);
-        $this->comment($content);
 
         // Specify the full path to the 'web.php' file in the application's 'routes' directory
         $appRouteFile = base_path('routes/web.php');

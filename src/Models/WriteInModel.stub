@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models;
+
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+class Dokumenti extends Model implements HasMedia
+{
+    use HasFactory, InteractsWithMedia;
+    // i was using Spatie/MediaLibrary so some of the methods for the file saving will be handled by this package
+    // use InteractsWithMedia;
+    public $guarded = [];
+
+    public function getUppercasedName()
+    {
+        return strtoupper($this->name);
+    }
+
+    /// here you can change the names of the collections and also can add more than one file per model
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('document')
+            ->singleFile();
+        $this->addMediaCollection('converted')
+            ->singleFile();
+    }
+}
