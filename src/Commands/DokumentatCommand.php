@@ -1,10 +1,10 @@
 <?php
 
 namespace Keysoft\Dokumentat\Commands;
-
+use Symfony\Component\Process\Process;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-
+use RuntimeException;
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
@@ -18,9 +18,6 @@ class DokumentatCommand extends Command
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
         $this->comment(app_path('Http/Controllers'));
         $this->comment(resource_path('js'));
-
-        // resource_path
-        // return 0;
 
         (new Filesystem)->copy(
             __DIR__.'/../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
@@ -37,16 +34,20 @@ class DokumentatCommand extends Command
         (new Filesystem)->copy(
             __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
         );
-        // (new Filesystem)->ensureDirectoryExists(app_path('Jobs'));
-        // (new Filesystem)->copy(__DIR__.'../Jobs/ConvertedDocument.php', app_path('Jobs/ConvertedDocument.php'));
-        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-vue/resources/js/Pages', resource_path('js/Pages'));
 
         $this->updateNodePackages(function ($packages) {
             return [
-                'vue' => '^3.2.41',
                 '@onlyoffice/document-editor-vue' => '^1.3.0',
             ] + $packages;
         });
+
+        if (file_exists(base_path('pnpm-lock.yaml'))) {
+            $this->runCommands(['pnpm install', 'pnpm run build']);
+        } elseif (file_exists(base_path('yarn.lock'))) {
+            $this->runCommands(['yarn install', 'yarn run build']);
+        } else {
+            $this->runCommands(['npm install', 'npm run build']);
+        }
 
         return self::SUCCESS;
     }
@@ -92,6 +93,29 @@ class DokumentatCommand extends Command
 
             $files->delete(base_path('yarn.lock'));
             $files->delete(base_path('package-lock.json'));
+        });
+    }
+
+    /**
+     * Run the given commands.
+     *
+     * @param  array  $commands
+     * @return void
+     */
+    protected function runCommands($commands)
+    {
+        $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
+
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+            try {
+                $process->setTty(true);
+            } catch (RuntimeException $e) {
+                $this->output->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
+            }
+        }
+
+        $process->run(function ($type, $line) {
+            $this->output->write('    '.$line);
         });
     }
 }
