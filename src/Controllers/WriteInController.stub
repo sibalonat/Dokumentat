@@ -25,13 +25,11 @@ class DokumentiController extends Controller
         /*
         * assumes you start the folder navigation from Pages
         * loads the document and the file
-
+        */
         return inertia('Document/Dokumenti', [
             'document' => $doc,
             'media' => $media,
         ]);
-
-        */
     }
 
     public function generatePdf(Dokumenti $dokumenti)

@@ -7,10 +7,6 @@ use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
-// "post-autoload-dump": [
-//     // "@composer run prepare",
-
-// ],
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
@@ -28,7 +24,7 @@ class DokumentatCommand extends Command
         (new Filesystem)->copy(
             __DIR__.'/../Controllers/DokumentiController.php', app_path('Http/Controllers/DokumentiController.php')
         );
-        $ctrl = __DIR__.'/../routes/WriteInController.stub';
+        $ctrl = __DIR__.'/../Controllers/WriteInController.stub';
         $appCtrlFile = app_path('Http/Controllers/DokumentiController.php');
         $contentCtrl = file_get_contents($ctrl);
 
