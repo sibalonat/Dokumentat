@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dokumenti;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Jobs\ConvertedDocument;
+use App\Models\Dokumenti;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class DokumentiController extends Controller
 {
@@ -79,11 +79,11 @@ class DokumentiController extends Controller
         under control
         */
 
-        if ($data["status"] == 6) {
-            $downloadUri = $data["url"];
+        if ($data['status'] == 6) {
+            $downloadUri = $data['url'];
             $documentId = $request->query('documentId');
             $fileName = $request->query('fileName');
-            $path = storage_path('app/public/' . $documentId . '/' . $fileName);
+            $path = storage_path('app/public/'.$documentId.'/'.$fileName);
 
             $newData = file_get_contents($downloadUri);
 

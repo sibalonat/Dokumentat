@@ -7,11 +7,10 @@ use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
+// "post-autoload-dump": [
+//     // "@composer run prepare",
 
-        // "post-autoload-dump": [
-        //     // "@composer run prepare",
-
-        // ],
+// ],
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
