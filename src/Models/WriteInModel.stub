@@ -14,11 +14,6 @@ class Dokumenti extends Model implements HasMedia
     // use InteractsWithMedia;
     public $guarded = [];
 
-    public function getUppercasedName()
-    {
-        return strtoupper($this->name);
-    }
-
     /// here you can change the names of the collections and also can add more than one file per model
     public function registerMediaCollections(): void
     {

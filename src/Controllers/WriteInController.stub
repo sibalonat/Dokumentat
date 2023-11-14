@@ -46,7 +46,7 @@ class DokumentiController extends Controller
             'url' => $media,
         ];
 
-        $converter = env('ONLYOFFICE_CONVERTER');
+        $converter = config('dokumentat.convert');
         Http::acceptJson()
             ->retry(3, 100)
             ->timeout(120)

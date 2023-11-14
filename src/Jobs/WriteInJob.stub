@@ -25,7 +25,7 @@ class ConvertedDocument implements ShouldQueue
      */
     public function handle(): void
     {
-        $converter = config('ONLYOFFICE_CONVERTER');
+        $converter = config('dokumentat.convert');
 
         $jsonConverter = [
             'async' => false,
