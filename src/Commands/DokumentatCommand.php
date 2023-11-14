@@ -1,10 +1,12 @@
 <?php
 
 namespace Keysoft\Dokumentat\Commands;
-use Symfony\Component\Process\Process;
+
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
+use Symfony\Component\Process\Process;
+
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
