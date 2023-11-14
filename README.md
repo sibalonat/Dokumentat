@@ -1,5 +1,5 @@
 ![Alt text](<art/KEYSOFT_Logo blu.svg>)
-# Package for using only office and php excel and word
+# Package for using ONLYOFFICE DEVELOPER EDITION for documents
 
 This package offers the possibility to use onlyoffice with Vue 3. It provides controllers, models, and jobs to make connection to OnlyOffice editor and make for example conversion of documents to PDF or other. But some of the files included will serve as examples on how to use OnlyOffice and some of the best practises i noticed this year by using this package.
 
@@ -9,6 +9,7 @@ This package relies heavily on:
 ```
 
 - [Laravel Inertia](https://github.com/inertiajs/inertia-laravel), 
+- [Laravel-Medialibrary](https://github.com/spatie/laravel-medialibrary) -> this would be helpful to install, 
 - [Laravel Breeze](https://github.com/laravel/breeze) - that will in fact streamline installing inertia, tailwind and vue
 - [Tailwind](https://tailwindcss.com/)
 - [Vue](https://vuejs.org/)
@@ -56,17 +57,19 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
+<!-- Optionally, you can publish the views using -->
 
-```bash
+<!-- ```bash
 php artisan vendor:publish --tag="dokumentat-views"
-```
+``` -->
 
 ## Usage
-After having installed inertia appart or through breeze, you will install 
+After having installed inertia appart or through breeze, and installed this package, appart for migration and config, there are some examples i've added to the package to be included in your project. The way to do that, would be to hit a command of the package. 
 ```php
-php artisan vendor:publish --tag="dokumentat-views"
+php artisan dokumentat
 ```
+
+This will create a model, controller, a job, some entries on web route, and finally a vue document, that will connect everything together. 
 
 ## Testing
 
@@ -78,18 +81,18 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
+<!-- ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities. -->
 
 ## Credits
 
 - [Marin Nikolli](https://github.com/mnplus)
-- [All Contributors](../../contributors)
+<!-- - [All Contributors](../../contributors) -->
 
 ## License
 
