@@ -45,10 +45,7 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
-            "@composer run prepare",
-            "@php artisan dokumentat"
-        ],
+        "post-autoload-dump": "@composer run prepare",
         "clear": "@php vendor/bin/testbench package:purge-dokumentat --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
@@ -63,8 +60,7 @@
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint",
-
+        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,

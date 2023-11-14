@@ -7,6 +7,11 @@ use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
+
+        // "post-autoload-dump": [
+        //     // "@composer run prepare",
+
+        // ],
 class DokumentatCommand extends Command
 {
     public $signature = 'dokumentat';
@@ -36,6 +41,18 @@ class DokumentatCommand extends Command
         (new Filesystem)->copy(
             __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
         );
+        (new Filesystem)->ensureDirectoryExists(base_path('routes'));
+        // (new Filesystem)->copy(
+        //     __DIR__.'/../Pages/Dokumenti.vue', resource_path('js/Pages/Dokumenti.vue')
+        // );
+
+        $route = __DIR__.'/../routes/web.php';
+        $this->comment($route);
+        $content = file_get_contents($route);
+        $this->comment($content);
+        $approute = base_path('routes');
+
+        // file_put_contents('logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 
         $this->updateNodePackages(function ($packages) {
             return [

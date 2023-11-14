@@ -8,7 +8,6 @@ import { DocumentEditor } from "@onlyoffice/document-editor-vue";
 const prop = defineProps({
     document: Object,
     media: Object,
-    // token: String
 });
 
 // properties

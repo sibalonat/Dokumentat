@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ConvertedDocument;
 use App\Models\Dokumenti;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Jobs\ConvertedDocument;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 class DokumentiController extends Controller
 {
@@ -58,5 +59,41 @@ class DokumentiController extends Controller
             $media,
             $dokumenti,
         )->delay(now()->addSeconds(10));
+    }
+
+    public function onlydocument(Dokumenti $dokumenti, Request $request)
+    {
+        $bodyStream = $request->getContent();
+
+        if ($bodyStream === false) {
+            return response()->json(['error' => 'Bad Request'], 400);
+        }
+
+        $data = json_decode($bodyStream, true);
+
+        /*
+        the status here is quite important. We are manually deciding when to save the file.
+        OnlyOffice has a default autosave. This autosaves, 5 seconds after you have closed the file.
+        In most cases that is good but there some cases that is not, immediate go away and return, will trigger
+        that the changes will be not reflected immediatly. We change that because we want to make sure that we have that
+        under control
+        */
+
+        if ($data["status"] == 6) {
+            $downloadUri = $data["url"];
+            $documentId = $request->query('documentId');
+            $fileName = $request->query('fileName');
+            $path = storage_path('app/public/' . $documentId . '/' . $fileName);
+
+            $newData = file_get_contents($downloadUri);
+
+            if ($newData === false) {
+                return response()->json(['error' => 'Bad Response'], 500);
+            } else {
+                file_put_contents($path, $newData, LOCK_EX);
+            }
+        }
+
+        return response()->json(['error' => 0]);
     }
 }
