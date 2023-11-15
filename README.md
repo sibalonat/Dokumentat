@@ -1,21 +1,22 @@
 ![Alt text](<art/KEYSOFT_Logo blu.svg>)
-# Package for using ONLYOFFICE DEVELOPER EDITION for documents
+# ONLYOFFICE DEVELOPER EDITION Package for Laravel with Vue 3 Integration
 
-This package offers the possibility to use onlyoffice with Vue 3. It provides controllers, models, and jobs to make connection to OnlyOffice editor and make for example conversion of documents to PDF or other. But some of the files included will serve as examples on how to use OnlyOffice and some of the best practises i noticed this year by using this package.
+## Overview
+This Laravel package enables the integration of ONLYOFFICE DEVELOPER EDITION with Vue 3 applications. It includes controllers, models, and jobs to facilitate the connection with the ONLYOFFICE editor, allowing functionalities like document conversion to PDF among others. The package also includes example files demonstrating best practices and effective usage of ONLYOFFICE within a Laravel environment.
 
-This package relies heavily on:
+## Key Dependencies:
+
+
+- [Laravel Inertia](https://github.com/inertiajs/inertia-laravel) -> Required, 
+- [Laravel-Medialibrary](https://github.com/spatie/laravel-medialibrary) -> Recommended for enhanced file management, 
+- [Laravel Breeze](https://github.com/laravel/breeze) - Simplifies the installation of Inertia, Tailwind, and Vue
+- [Tailwind](https://tailwindcss.com/) -> For styling
+- [Vue](https://vuejs.org/) -> Core dependency
+
+### Prerequisites
 ```bash
-=== BEFORE INSTALLING THIS PACKAGE BE SURE TO INSTALL BREEZE WITH INERTIA.VUE === 
+=== Ensure Laravel Breeze with Inertia.Vue is installed before using this package === 
 ```
-
-- [Laravel Inertia](https://github.com/inertiajs/inertia-laravel), 
-- [Laravel-Medialibrary](https://github.com/spatie/laravel-medialibrary) -> this would be helpful to install, 
-- [Laravel Breeze](https://github.com/laravel/breeze) - that will in fact streamline installing inertia, tailwind and vue
-- [Tailwind](https://tailwindcss.com/)
-- [Vue](https://vuejs.org/)
-
-<!-- ## Support us -->
-
 
 ## Installation
 
@@ -32,24 +33,23 @@ php artisan vendor:publish --tag="dokumentat-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
-- This file is responsabile for adding the IP on local environment. 
-- If you have purchased the developer edition like we did from OnlyOffice for internal use you would be able to refer to this guide also for installing the application on the Production
-- The two basic configuration here are developer: that will be the ip or domain when in production, and then the other is the callback when we send a request for converting the document. OnlyOffice uses async approach to these type of callbacks, therefore it first finishes doing the process, and then sends back the payload with the changes. 
+### Configuration Notes:
+- The config file sets the local environment IP and handles callbacks for document conversions using ONLYOFFICE's asynchronous approach.
+- Example configurations for local and production environments are provided below.
 
 ```bash
 php artisan vendor:publish --tag="dokumentat-config"
 ```
 
 This is the contents of the published config file:
-
+- Local Environment Config:
 ```php
 return [
     'developer' => 'http://192.168.0.3:82/"',
     'convert' => config('dokumentat.developer').'/ConvertService.ashx',
 ];
 ```
-- or in prod
+- Production Environment Config:
 ```php
 return [
     'developer' => 'https://yourdomain.com/"',
@@ -64,21 +64,25 @@ php artisan vendor:publish --tag="dokumentat-views"
 ``` -->
 
 ## Usage
-After having installed inertia appart or through breeze, and installed this package, appart for migration and config, there are some examples i've added to the package to be included in your project. The way to do that, would be to hit a command of the package. 
+After installing Breeze (or Inertia separately) and this package, use the following command to set up the necessary files:
 ```php
 php artisan dokumentat
 ```
 
-This will create a model, controller, a job, some entries on web route, and finally a vue document, that will connect everything together. 
-It will add the package to use in Vue Component and also make npm install or any package manager for node modules you will be using.
+This command will create a model, controller, a job, add routes, and a Vue document. It will also install the necessary npm packages.
 
-Whats next is to add some pages for how to setup the local enviornment, and how use other packages like PHPWord and PHPExcel 
-with ONLYOFFICE
+
+### Upcoming Features:
+
+- Guidelines for setting up a local environment with ONLYOFFICE.
+- Integration examples with PHPWord and PHPExcel.
+
+
 
 
 ```php
-Later i will add more explaining and some use cases on how to setup ONLYOFFICE
-locally and on the server, and some examples on using it with other applications
+Further details and use cases will be added soon, including setting up ONLYOFFICE locally and on a server, 
+and integrating it with other applications.
 ```
 
 ## Testing
