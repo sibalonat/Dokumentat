@@ -70,6 +70,10 @@ php artisan dokumentat
 ```
 
 This will create a model, controller, a job, some entries on web route, and finally a vue document, that will connect everything together. 
+It will add the package to use in Vue Component and also make npm install or any package manager for node modules you will be using.
+
+Whats next is to add some pages for how to setup the local enviornment, and how use other packages like PHPWord and PHPExcel 
+with ONLYOFFICE
 
 
 ```php
