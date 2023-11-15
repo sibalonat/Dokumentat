@@ -1,6 +1,6 @@
 {
     "name": "keysoft/dokumentat",
-    "description": "Package for using only office and php excel and word",
+    "description": "Package for using ONLYOFFICE DEVELOPER EDITION for documents",
     "keywords": [
         "keysoft",
         "laravel",
