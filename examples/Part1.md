@@ -75,7 +75,6 @@ composer require keysoft/dokumentat:dev-main
 ```
 
 <br />
-<br />
 
 With this command, we’ll be bringing [‘dokumentat’](https://packagist.org/packages/keysoft/dokumentat) into our project, setting the stage for some exciting developments ahead. Stay tuned for our next tutorial where OnlyOffice comes into play!
 
@@ -96,7 +95,6 @@ php artisan vendor:publish --tag="dokumentat-migrations"
 ```
 
 <br />
-
 
 We need to do one more step, to create some files that we will use during this implementation, respectively, controller, route, vue component, model, and job
 
