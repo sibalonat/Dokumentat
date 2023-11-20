@@ -73,3 +73,11 @@ Here’s our next immediate step:
 ```bash
 composer require keysoft/dokumentat:dev-main
 ```
+
+<br />
+<br />
+
+With this command, we’ll be bringing [‘dokumentat’](https://packagist.org/packages/keysoft/dokumentat) into our project, setting the stage for some exciting developments ahead. Stay tuned for our next tutorial where OnlyOffice comes into play!
+
+<br />
+<br />
