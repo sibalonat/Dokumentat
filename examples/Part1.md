@@ -62,7 +62,7 @@ Finalizing the Setup: Most of the subsequent prompts are straightforward. I usua
 <br />
 <br />
 
-Wrapping up this part of our journey, we’ll install the '[‘dokumentat’]'(https://packagist.org/packages/keysoft/dokumentat) package, a creation of mine, and then run migrations. Next time, we’ll dive into setting up OnlyOffice in our environment and integrating it with our application.
+Wrapping up this part of our journey, we’ll install the [‘dokumentat’](https://packagist.org/packages/keysoft/dokumentat) package, a creation of mine, and then run migrations. Next time, we’ll dive into setting up OnlyOffice in our environment and integrating it with our application.
 
 <br />
 <br />
