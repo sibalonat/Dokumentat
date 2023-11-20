@@ -13,4 +13,18 @@ In this tutorial series, I’ll guide you through integrating OnlyOffice with La
 
 --- 
 PART 1
+<br />
+<br />
+As a first step, we would need to install a new Laravel application and set everything up. For this tutorial series, I will not use docker, but if you feel more inclined to do so, it would help if you can write in the comment section how did you it so that people who use docker in their environment can pick up.
+<br />
+<br />
+Start Fresh: First, let’s create a new Laravel application. Run this command:
+<br />
+<br />
 
+```bash
+composer create-project laravel/laravel example
+```
+<br />
+<br />
+This will create a new Laravel Project and set up the basic configuration.
