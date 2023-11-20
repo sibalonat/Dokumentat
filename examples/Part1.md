@@ -66,3 +66,10 @@ Wrapping up this part of our journey, we’ll install the [‘dokumentat’](htt
 
 <br />
 <br />
+Here’s our next immediate step:
+<br />
+<br />
+
+```bash
+composer require keysoft/dokumentat:dev-main
+```
