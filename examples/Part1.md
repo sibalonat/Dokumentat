@@ -48,3 +48,21 @@ Configuring Breeze: After installing Breeze, let’s set it up. Execute:
 ```bash
 php artisan breeze:install
 ```
+
+<br />
+<br />
+
+In the past, when we installed Breeze we needed also to specify some properties of the installation, such as what bundle (react, vue, livewire, API, and more properties), but now now prompt in the terminal will ask you to choose your stack. For this project, we’re going with Inertia Vue. Just type vue in lowercase.
+
+<br />
+<br />
+
+Finalizing the Setup: Most of the subsequent prompts are straightforward. I usually hit enter to accept the defaults. What happens next is Breeze configures Vue 3 in our Laravel app, with Inertia acting as the bridge between the two.
+
+<br />
+<br />
+
+Wrapping up this part of our journey, we’ll install the ‘dokumentat’ package, a creation of mine, and then run migrations. Next time, we’ll dive into setting up OnlyOffice in our environment and integrating it with our application.
+
+<br />
+<br />
