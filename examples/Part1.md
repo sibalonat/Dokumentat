@@ -81,3 +81,21 @@ With this command, we’ll be bringing [‘dokumentat’](https://packagist.org/
 
 <br />
 <br />
+We then publish the migration and configuration file for this package:
+<br />
+<br />
+
+```bash
+php artisan vendor:publish --tag="dokumentat-config"
+```
+<br />
+<br />
+
+```bash
+php artisan vendor:publish --tag="dokumentat-migrations"
+```
+
+<br />
+<br />
+
+We need to do one more step, to create some files that we will use during this implementation, respectively, controller, route, vue component, model, and job
