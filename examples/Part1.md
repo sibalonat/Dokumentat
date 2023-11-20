@@ -96,6 +96,9 @@ php artisan vendor:publish --tag="dokumentat-migrations"
 ```
 
 <br />
-<br />
+
 
 We need to do one more step, to create some files that we will use during this implementation, respectively, controller, route, vue component, model, and job
+
+<br />
+<br />
