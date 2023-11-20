@@ -85,6 +85,11 @@ Further details and use cases will be added soon, including setting up ONLYOFFIC
 and integrating it with other applications.
 ```
 
+___
+## Tutorials: 
+- [Part 1](https://medium.com/@marin.nikoli/this-year-i-ventured-beyond-the-usual-crud-applications-and-tackled-an-exciting-challenge-a1efe5a35df6) / ['Example/Part1']
+___
+
 ## Testing
 
 ```bash
