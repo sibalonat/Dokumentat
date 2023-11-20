@@ -28,3 +28,23 @@ composer create-project laravel/laravel example
 <br />
 <br />
 This will create a new Laravel Project and set up the basic configuration.
+<br />
+<br />
+Introducing Breeze: Next, we’ll install Laravel Breeze. It’s a minimal yet powerful starter kit that’ll help us integrate Vue 3 seamlessly. Run:
+<br />
+<br />
+
+```bash
+composer require laravel/breeze –dev
+```
+
+<br />
+<br />
+
+Configuring Breeze: After installing Breeze, let’s set it up. Execute:
+<br />
+<br />
+
+```bash
+php artisan breeze:install
+```
