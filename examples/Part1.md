@@ -99,4 +99,13 @@ php artisan vendor:publish --tag="dokumentat-migrations"
 We need to do one more step, to create some files that we will use during this implementation, respectively, controller, route, vue component, model, and job
 
 <br />
+
+```bash
+php artisan dokumentat
+```
+
+<br />
+
+Finally, we’ll lay down some groundwork by creating essential elements like a controller, routes, Vue components, a model, and a job. These will form the backbone of our implementation in the coming steps. Stay tuned! 🌟👨‍💻
+
 <br />
